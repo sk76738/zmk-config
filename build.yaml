@@ -19,7 +19,18 @@
 #
 ---
 include:
+  - board: seeeduino_xiao_ble
+    shield: kradio_central
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
   - board: nice_nano_v2
-    shield: cradio_left
+    shield: kradio_left
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
   - board: nice_nano_v2
-    shield: cradio_right
+    shield: kradio_right
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+  - board: nice_nano_v2
+    shield: settings_reset
+    artifact-name: reset_both_sides
+  - board: seeeduino_xiao_ble
+    shield: settings_reset
+    artifact-name: reset_trackball
