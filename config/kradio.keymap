@@ -203,12 +203,12 @@
             then-layer = <8>;
         };
 
-        Mouse {
+        Mousel {
             if-layers = <1 6>;
             then-layer = <7>;
         };
 
-        Mouse {
+        Mouser {
             if-layers = <3 2>;
             then-layer = <7>;
         };
