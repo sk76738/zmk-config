@@ -38,7 +38,7 @@
         };
 
         caps {
-            bindings = <&caps_word>;
+            bindings = <&kp CAPSLOCK>;
             key-positions = <13 16>;
         };
     };
@@ -108,7 +108,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        base_layer {
             bindings = <
 &kp Q        &kp W        &kp E         &kp R         &kp T              &kp Y        &kp U         &kp I         &kp O        &kp P
 &hml LGUI A  &hml LALT S  &hml LCTRL D  &hml LSHFT F  &kp G              &kp H        &hmr RSHFT J  &hmr LCTRL K  &hmr LALT L  &sl 4
@@ -164,10 +164,10 @@
 
         fun_layer {
             bindings = <
-&bootloader  &studio_unlock  &none          &none          &none     &none   &none   &none  &studio_unlock  &bootloader
-&none        &none           &none          &none          &none     &none   &none   &none  &aim AIM_ON     &aim AIM_OFF
-&none        &kp LC(LS(X))   &kp LC(LS(C))  &kp LC(LS(V))  &none     &none   &none   &none  &none           &none
-                                            &trans         &trans    &trans  &trans
+&none          &none              &msc SCRL_UP    &none          &none     &none   &none   &none  &none  &none
+&kp LC(PG_UP)  &kp LC(PAGE_DOWN)  &msc SCRL_DOWN  &kp LEFT_GUI   &none     &none   &none   &none  &none  &none
+&none          &kp LC(LS(X))      &kp LC(LS(C))   &kp LC(LS(V))  &none     &none   &none   &none  &none  &none
+                                                  &trans         &trans    &trans  &trans
             >;
         };
 
@@ -179,6 +179,15 @@
                            &trans    &trans    &trans  &trans
             >;
         };
+
+        extra {
+            bindings = <
+&bootloader  &studio_unlock  &none  &none   &none     &none   &none   &none  &studio_unlock  &bootloader
+&none        &none           &none  &none   &none     &none   &none   &none  &none           &none
+&none        &none           &none  &none   &none     &none   &none   &none  &none           &none
+                                    &trans  &trans    &trans  &trans
+            >;
+        };
     };
 
     conditional_layers {
@@ -187,6 +196,16 @@
         Settings {
             if-layers = <1 2>;
             then-layer = <5>;
+        };
+
+        Extra {
+            if-layers = <3 6>;
+            then-layer = <8>;
+        };
+
+        Mouse {
+            if-layers = <1 6>;
+            then-layer = <7>;
         };
     };
 };
